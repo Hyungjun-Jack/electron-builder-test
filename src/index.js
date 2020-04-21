@@ -79,7 +79,7 @@ autoUpdater.on("download-progress", (progressObj) => {
   log_message = log_message + " (" + progressObj.transferred + "/" + progressObj.total + ")";
   sendStatusToWindow(log_message);
 });
-autoUpdater.on("update-downloaded", async (info) => {
+autoUpdater.on("update-downloaded", (info) => {
   sendStatusToWindow("Update downloaded");
 
   const option = {
@@ -89,7 +89,7 @@ autoUpdater.on("update-downloaded", async (info) => {
     title: "electron-updater",
     message: "업데이트가 있습니다. 프로그램을 업데이트 하시겠습니까?",
   };
-  let btnIndex = await dialog.showMessageBox(updateWin, option);
+  let btnIndex = dialog.showMessageBoxSync(updateWin, option);
 
   if (btnIndex === 0) {
     autoUpdater.quitAndInstall();
