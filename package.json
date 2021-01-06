@@ -26,6 +26,10 @@
       "target": "nsis"
     },
     "mac": {
+      "publish": {
+        "provider": "github",
+        "private": true
+      },
       "target": [
         "default"
       ]
