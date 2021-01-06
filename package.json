@@ -6,7 +6,8 @@
   "main": "src/index.js",
   "scripts": {
     "build:win-ia32": "electron-builder --win --ia32",
-    "build:win-x64": "electron-builder --win --x64"
+    "build:win-x64": "electron-builder --win --x64",
+    "build:osx": "electron-builder --mac"
   },
   "keywords": [],
   "author": {
@@ -15,9 +16,22 @@
   "license": "MIT",
   "build": {
     "productName": "builder-test",
+    "appId": "com.hyungjun-jack.builder-test",
     "asar": true,
     "win": {
+      "publish": {
+        "provider": "github",
+        "private": true
+      },
       "target": "nsis"
+    },
+    "mac": {
+      "target": [
+        "default"
+      ]
+    },
+    "dmg": {
+      "title": "builder-test"
     },
     "nsis": {
       "oneClick": true,

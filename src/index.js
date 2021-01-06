@@ -1,6 +1,8 @@
 const { app, BrowserWindow, dialog } = require("electron");
 const path = require("path");
 
+process.env.GH_TOKEN = "92226abdbf75409de34f18523812e00be7febc7c";
+
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
